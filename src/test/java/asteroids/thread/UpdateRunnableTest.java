@@ -33,7 +33,7 @@ public class UpdateRunnableTest {
 
         updater.run();
 
-        verify(asteroid, times(1)).update();
+        verify(asteroid).update();
     }
 
     @Test

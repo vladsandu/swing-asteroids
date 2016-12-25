@@ -37,7 +37,7 @@ public class MainRunner
             f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             f.getContentPane().add(component);
             f.setSize(Settings.WIDTH, Settings.HEIGHT);
-            f.setTitle("I need more sleep...");
+            f.setTitle("Asteroids");
             f.setLocationRelativeTo(null);
             f.setResizable(false);
             f.setVisible(true);

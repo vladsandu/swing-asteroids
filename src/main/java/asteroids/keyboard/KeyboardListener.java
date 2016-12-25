@@ -25,22 +25,22 @@ public class KeyboardListener implements KeyListener{
     }
 
     public void processKey(char character) {
+        character = Character.toUpperCase(character);
         switch (character){
             case 'W':
-            case 'w':
                 currentData.movePlayer(Direction.UP);
                 break;
             case 'S':
-            case 's':
                 currentData.movePlayer(Direction.DOWN);
                 break;
             case 'A':
-            case 'a':
                 currentData.movePlayer(Direction.LEFT);
                 break;
             case 'D':
-            case 'd':
                 currentData.movePlayer(Direction.RIGHT);
+                break;
+            case 'R':
+                currentData.resetGame();
                 break;
         }
     }

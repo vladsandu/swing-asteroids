@@ -5,6 +5,7 @@ import asteroids.state.CurrentData;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 public class KeyboardListenerTest {
     @Test
@@ -27,5 +28,15 @@ public class KeyboardListenerTest {
         KeyboardListener listener = new KeyboardListener(currentData);
         listener.processKey('P');
         assertEquals(oldY, playerPosition.getY());
+    }
+
+    @Test
+    public void KeyPressed_RKeyPressed_ResetsGame(){
+        CurrentData currentData = new CurrentData(null);
+        currentData.setGameOver(true);
+        KeyboardListener listener = new KeyboardListener(currentData);
+        listener.processKey('r');
+        boolean actual = currentData.isGameOver();
+        assertFalse(actual);
     }
 }

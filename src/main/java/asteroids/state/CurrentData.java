@@ -13,6 +13,7 @@ public class CurrentData {
     private final List<Asteroid> asteroids;
     private final Player player;
     private boolean gameOver;
+
     public CurrentData(){
         this(new AsteroidFactory());
     }
@@ -21,7 +22,7 @@ public class CurrentData {
         this.factory = asteroidFactory;
         this.asteroids = new CopyOnWriteArrayList<>();
         this.player = new Player();
-        this.gameOver = false;
+        resetGame();
     }
 
     public void addAsteroid() {
@@ -62,6 +63,10 @@ public class CurrentData {
         return gameOver;
     }
 
+    public void setGameOver(boolean gameOver) {
+        this.gameOver = gameOver;
+    }
+
     public void checkCollisions() {
         for(Asteroid asteroid : asteroids){
             if(player.intersects(asteroid)){
@@ -69,5 +74,10 @@ public class CurrentData {
                 return;
             }
         }
+    }
+
+    public void resetGame() {
+        gameOver = false;
+        asteroids.clear();
     }
 }

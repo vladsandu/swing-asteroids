@@ -96,4 +96,21 @@ public class CurrentDataTest {
         currentData.checkCollisions();
         assertFalse(currentData.isGameOver());
     }
+
+    @Test
+    public void ResetGame_WhenCalled_SetsGameOverFalse(){
+        CurrentData currentData = new CurrentData(null);
+        currentData.setGameOver(true);
+        currentData.resetGame();
+        boolean actual = currentData.isGameOver();
+        assertFalse(actual);
+    }
+
+    @Test
+    public void ResetGame_WhenCalled_EmptiesAsteroidList(){
+        CurrentData currentData = new CurrentData(new AsteroidFactory());
+        currentData.addAsteroid();
+        currentData.resetGame();
+        assertEquals(0, currentData.getAsteroidCount());
+    }
 }
