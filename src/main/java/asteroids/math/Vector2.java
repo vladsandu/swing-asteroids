@@ -25,4 +25,15 @@ public class Vector2 {
     public int getY() {
         return y;
     }
+
+    public void bound(int minWidth, int maxWidth, int minHeight, int maxHeight) {
+        if(x < minWidth)
+            x = minWidth;
+        else if(x > maxWidth)
+            x = maxWidth;
+        if(y < minHeight)
+            y = minHeight;
+        else if(y > maxHeight)
+            y = maxHeight;
+    }
 }

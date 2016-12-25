@@ -13,4 +13,18 @@ public class Vector2Test {
         assertEquals(x + dx, vector.getX());
         assertEquals(y + dy, vector.getY());
     }
+
+    @Test
+    public void Bound_OutsideBound_SetsToClosestExtremity(){
+        Vector2 vector = new Vector2(-2, 0);
+        vector.bound(0, 10, 0, 10);
+        assertEquals(0, vector.getX());
+    }
+
+    @Test
+    public void Bound_InsideBound_DoesNothing(){
+        Vector2 vector = new Vector2(0, 0);
+        vector.bound(0, 10, 0, 10);
+        assertEquals(0, vector.getX());
+    }
 }

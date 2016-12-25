@@ -34,6 +34,7 @@ public class Player {
                 position.translate(speed, 0);
                 break;
         }
+        position.bound(0, Settings.WIDTH - size, 0, Settings.HEIGHT - size);
     }
 
     public void show(IDrawer drawer) {

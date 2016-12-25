@@ -14,9 +14,17 @@ public class PlayerTest {
     @Test
     public void Move_WhenCalled_MovesPlayer(){
         Player player = new Player(new Vector2(0, 0), 5, 3);
-        player.move(Direction.UP);
+        player.move(Direction.DOWN);
         Vector2 position = player.getPosition();
-        assertEquals(-5, position.getY());
+        assertEquals(5, position.getY());
+    }
+
+    @Test
+    public void Move_PositionOffScreen_DoesNotMove(){
+        Player player = new Player(new Vector2(0, 0), 5, 3);
+        player.move(Direction.LEFT);
+        Vector2 position = player.getPosition();
+        assertEquals(0, position.getX());
     }
 
     @Test
