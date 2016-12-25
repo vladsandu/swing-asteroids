@@ -3,6 +3,10 @@ package asteroids.asteroid;
 import asteroids.math.Vector2;
 import asteroids.render.IDrawer;
 import asteroids.settings.Settings;
+import javafx.scene.shape.Circle;
+
+import java.awt.*;
+import java.awt.geom.Ellipse2D;
 
 public class Asteroid {
     private Vector2 position;
@@ -40,5 +44,9 @@ public class Asteroid {
 
     public int getSize() {
         return size;
+    }
+
+    public Ellipse2D getCollisionBox() {
+        return new Ellipse2D.Float(position.getX(), position.getY(), size, size);
     }
 }

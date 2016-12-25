@@ -1,9 +1,13 @@
 package asteroids.player;
 
+import asteroids.asteroid.Asteroid;
 import asteroids.math.Vector2;
 import asteroids.render.IDrawer;
 import asteroids.settings.Settings;
 import asteroids.state.Direction;
+
+import java.awt.*;
+import java.awt.geom.Ellipse2D;
 
 public class Player {
     private final Vector2 position;
@@ -51,5 +55,15 @@ public class Player {
 
     public int getSize() {
         return size;
+    }
+
+    public boolean intersects(Asteroid asteroid) {
+        Ellipse2D asteroidBox = asteroid.getCollisionBox();
+        Rectangle playerBox = getCollisionBox();
+        return asteroidBox.intersects(playerBox);
+    }
+
+    private Rectangle getCollisionBox() {
+        return new Rectangle(position.getX(), position.getY(), size, size);
     }
 }

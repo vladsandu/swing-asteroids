@@ -12,7 +12,7 @@ public class CurrentData {
     private final AsteroidFactory factory;
     private final List<Asteroid> asteroids;
     private final Player player;
-
+    private boolean gameOver;
     public CurrentData(){
         this(new AsteroidFactory());
     }
@@ -21,6 +21,7 @@ public class CurrentData {
         this.factory = asteroidFactory;
         this.asteroids = new CopyOnWriteArrayList<>();
         this.player = new Player();
+        this.gameOver = false;
     }
 
     public void addAsteroid() {
@@ -55,5 +56,18 @@ public class CurrentData {
         for(int i = asteroids.size() - 1; i >= 0; i--)
             if(asteroids.get(i).isOffScreen())
                 asteroids.remove(i);
+    }
+
+    public boolean isGameOver() {
+        return gameOver;
+    }
+
+    public void checkCollisions() {
+        for(Asteroid asteroid : asteroids){
+            if(player.intersects(asteroid)){
+                gameOver = true;
+                return;
+            }
+        }
     }
 }

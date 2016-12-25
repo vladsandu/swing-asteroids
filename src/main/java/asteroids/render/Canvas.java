@@ -23,6 +23,11 @@ public class Canvas extends JComponent {
         super.paintComponent(g);
         requestFocus();
         Drawer drawer = new Drawer((Graphics2D) g);
-        currentData.showEntities(drawer);
+        if(!currentData.isGameOver()) {
+            currentData.showEntities(drawer);
+        }
+        else{
+            drawer.drawGameOverScreen(g);
+        }
     }
 }

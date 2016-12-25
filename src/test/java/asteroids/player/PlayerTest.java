@@ -1,5 +1,6 @@
 package asteroids.player;
 
+import asteroids.asteroid.Asteroid;
 import asteroids.math.Vector2;
 import asteroids.render.IDrawer;
 import asteroids.state.Direction;
@@ -7,7 +8,7 @@ import org.junit.Test;
 
 import java.awt.*;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
 public class PlayerTest {
@@ -34,5 +35,21 @@ public class PlayerTest {
         IDrawer drawer = mock(IDrawer.class);
         player.show(drawer);
         verify(drawer, times(1)).fillRect(eq(position), eq(player.getSize()), any(Color.class));
+    }
+
+    @Test
+    public void Intersects_InsideAsteroid_ReturnsTrue(){
+        Asteroid asteroid = new Asteroid(new Vector2(10, 10), 10, 10);
+        Player player = new Player(new Vector2(10, 10), 10, 10);
+        boolean actual = player.intersects(asteroid);
+        assertTrue(actual);
+    }
+
+    @Test
+    public void Intersects_OutsideAsteroid_ReturnsFalse(){
+        Asteroid asteroid = new Asteroid(new Vector2(10, 10), 10, 10);
+        Player player = new Player(new Vector2(100, 10), 10, 10);
+        boolean actual = player.intersects(asteroid);
+        assertFalse(actual);
     }
 }

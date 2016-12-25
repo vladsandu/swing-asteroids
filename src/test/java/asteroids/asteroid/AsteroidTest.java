@@ -1,12 +1,12 @@
 package asteroids.asteroid;
 
 import asteroids.math.Vector2;
-import asteroids.player.Player;
 import asteroids.render.IDrawer;
 import asteroids.settings.Settings;
 import org.junit.Test;
 
 import java.awt.*;
+import java.awt.geom.Ellipse2D;
 
 import static org.junit.Assert.*;
 import static org.mockito.Matchers.any;
@@ -47,5 +47,13 @@ public class AsteroidTest {
         Asteroid asteroid = new Asteroid(new Vector2(0, Settings.HEIGHT + 1), 10, 10);
         boolean actual = asteroid.isOffScreen();
         assertTrue(actual);
+    }
+
+    @Test
+    public void GetCollisionRect_WhenCalled_GeneratesRectangle(){
+        Asteroid asteroid = new Asteroid(new Vector2(10, 10), 10, 10);
+        Ellipse2D expected = new Ellipse2D.Float(10, 10, 10 ,10);
+        Ellipse2D actual = asteroid.getCollisionBox();
+        assertEquals(expected, actual);
     }
 }

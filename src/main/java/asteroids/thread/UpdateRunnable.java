@@ -21,6 +21,7 @@ public class UpdateRunnable implements Runnable{
         trySpawnAsteroid();
         currentData.updateAsteroids();
         currentData.cleanAsteroids();
+        currentData.checkCollisions();
     }
 
     private void trySpawnAsteroid() {

@@ -10,6 +10,8 @@ import org.junit.Test;
 import java.awt.*;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.*;
 
 public class CurrentDataTest {
@@ -72,5 +74,26 @@ public class CurrentDataTest {
         assertEquals(2, currentData.getAsteroidCount());
         currentData.cleanAsteroids();
         assertEquals(1, currentData.getAsteroidCount());
+    }
+
+    @Test
+    public void CheckCollisions_CollisionExists_SetGameOver(){
+        AsteroidFactory factory = mock(AsteroidFactory.class);
+        CurrentData currentData = new CurrentData(factory);
+        Asteroid asteroid1 = new Asteroid(currentData.getPlayer().getPosition(), 10, 10);
+        Asteroid asteroid2 = new Asteroid(new Vector2(100, 100), 0, 0);
+        when(factory.makeAsteroid()).thenReturn(asteroid1, asteroid2);
+        assertFalse(currentData.isGameOver());
+        currentData.addAsteroid();
+        currentData.addAsteroid();
+        currentData.checkCollisions();
+        assertTrue(currentData.isGameOver());
+    }
+
+    @Test
+    public void CheckCollisions_NoCollision_DoesNothing(){
+        CurrentData currentData = new CurrentData(new AsteroidFactory());
+        currentData.checkCollisions();
+        assertFalse(currentData.isGameOver());
     }
 }

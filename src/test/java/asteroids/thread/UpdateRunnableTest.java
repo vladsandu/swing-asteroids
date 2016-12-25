@@ -5,6 +5,8 @@ import asteroids.asteroid.AsteroidFactory;
 import asteroids.state.CurrentData;
 import org.junit.Test;
 
+import java.awt.geom.Ellipse2D;
+
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
 
@@ -22,6 +24,7 @@ public class UpdateRunnableTest {
     @Test
     public void Run_WhenCalled_UpdatesAsteroids(){
         Asteroid asteroid = mock(Asteroid.class);
+        when(asteroid.getCollisionBox()).thenReturn(mock(Ellipse2D.class));
         AsteroidFactory factory = mock(AsteroidFactory.class);
         when(factory.makeAsteroid()).thenReturn(asteroid);
         CurrentData currentData = new CurrentData(factory);
@@ -41,5 +44,15 @@ public class UpdateRunnableTest {
         updater.run();
 
         verify(currentData, times(1)).cleanAsteroids();
+    }
+
+    @Test
+    public void Run_WhenCalled_ChecksCollisions(){
+        CurrentData currentData = mock(CurrentData.class);
+        UpdateRunnable updater = new UpdateRunnable(currentData);
+
+        updater.run();
+
+        verify(currentData, times(1)).checkCollisions();
     }
 }
