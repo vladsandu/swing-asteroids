@@ -22,7 +22,9 @@ public class CanvasTest {
         CurrentData currentData = mock(CurrentData.class);
         when(currentData.isGameOver()).thenReturn(true);
         Canvas canvas = new Canvas(currentData);
-        canvas.paintComponent(mock(Graphics2D.class));
+        Graphics2D graphicsMock = mock(Graphics2D.class);
+        when(graphicsMock.getFontMetrics(any(Font.class))).thenReturn(mock(FontMetrics.class));
+        canvas.paintComponent(graphicsMock);
         verify(currentData, times(0)).showEntities(any(IDrawer.class));
     }
 }
