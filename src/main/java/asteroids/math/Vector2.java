@@ -3,7 +3,7 @@ package asteroids.math;
 public class Vector2 {
     private int x, y;
 
-    public Vector2(){
+    public Vector2() {
         this.x = 0;
         this.y = 0;
     }
@@ -13,7 +13,7 @@ public class Vector2 {
         this.y = y;
     }
 
-    public void translate(int dx, int dy){
+    public void translate(int dx, int dy) {
         x += dx;
         y += dy;
     }
@@ -27,13 +27,13 @@ public class Vector2 {
     }
 
     public void bound(int minWidth, int maxWidth, int minHeight, int maxHeight) {
-        if(x < minWidth)
+        if (x < minWidth)
             x = minWidth;
-        else if(x > maxWidth)
+        else if (x > maxWidth)
             x = maxWidth;
-        if(y < minHeight)
+        if (y < minHeight)
             y = minHeight;
-        else if(y > maxHeight)
+        else if (y > maxHeight)
             y = maxHeight;
     }
 }

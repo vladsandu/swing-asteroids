@@ -16,7 +16,7 @@ import static org.mockito.Mockito.*;
 
 public class CurrentDataTest {
     @Test
-    public void AddAsteroid_WhenCalled_AddsToList(){
+    public void AddAsteroid_WhenCalled_AddsToList() {
         CurrentData currentData = new CurrentData(new AsteroidFactory());
         int count = currentData.getAsteroidCount();
         assertEquals(0, count);
@@ -26,7 +26,7 @@ public class CurrentDataTest {
     }
 
     @Test
-    public void MovePlayer_WhenCalled_MovesPlayer(){
+    public void MovePlayer_WhenCalled_MovesPlayer() {
         CurrentData currentData = new CurrentData(null);
         Player player = currentData.getPlayer();
         int speed = player.getSpeed();
@@ -36,7 +36,7 @@ public class CurrentDataTest {
     }
 
     @Test
-    public void UpdateAsteroids_WhenCalled_UpdatesAllAsteroids(){
+    public void UpdateAsteroids_WhenCalled_UpdatesAllAsteroids() {
         AsteroidFactory factory = mock(AsteroidFactory.class);
         Asteroid asteroid1 = mock(Asteroid.class);
         Asteroid asteroid2 = mock(Asteroid.class);
@@ -50,10 +50,10 @@ public class CurrentDataTest {
     }
 
     @Test
-    public void ShowEntities_WhenCalled_CallsDrawerAppropriateNumberOfTimes(){
+    public void ShowEntities_WhenCalled_CallsDrawerAppropriateNumberOfTimes() {
         IDrawer drawer = mock(IDrawer.class);
         CurrentData currentData = new CurrentData(new AsteroidFactory());
-        for(int i = 0; i < 10; i++)
+        for (int i = 0; i < 10; i++)
             currentData.addAsteroid();
         currentData.showEntities(drawer);
         verify(drawer, times(10)).fillCircle(any(Vector2.class), any(Integer.class), any(Color.class));
@@ -61,7 +61,7 @@ public class CurrentDataTest {
     }
 
     @Test
-    public void CleanAsteroids_WhenCalled_RemovesOffScreenAsteroids(){
+    public void CleanAsteroids_WhenCalled_RemovesOffScreenAsteroids() {
         AsteroidFactory factory = mock(AsteroidFactory.class);
         Asteroid asteroid1 = mock(Asteroid.class);
         Asteroid asteroid2 = mock(Asteroid.class);
@@ -77,7 +77,7 @@ public class CurrentDataTest {
     }
 
     @Test
-    public void CheckCollisions_CollisionExists_SetGameOver(){
+    public void CheckCollisions_CollisionExists_SetGameOver() {
         AsteroidFactory factory = mock(AsteroidFactory.class);
         CurrentData currentData = new CurrentData(factory);
         Asteroid asteroid1 = new Asteroid(currentData.getPlayer().getPosition(), 10, 10);
@@ -91,14 +91,14 @@ public class CurrentDataTest {
     }
 
     @Test
-    public void CheckCollisions_NoCollision_DoesNothing(){
+    public void CheckCollisions_NoCollision_DoesNothing() {
         CurrentData currentData = new CurrentData(new AsteroidFactory());
         currentData.checkCollisions();
         assertFalse(currentData.isGameOver());
     }
 
     @Test
-    public void ResetGame_WhenCalled_SetsGameOverFalse(){
+    public void ResetGame_WhenCalled_SetsGameOverFalse() {
         CurrentData currentData = new CurrentData(null);
         currentData.setGameOver(true);
         currentData.resetGame();
@@ -107,7 +107,7 @@ public class CurrentDataTest {
     }
 
     @Test
-    public void ResetGame_WhenCalled_EmptiesAsteroidList(){
+    public void ResetGame_WhenCalled_EmptiesAsteroidList() {
         CurrentData currentData = new CurrentData(new AsteroidFactory());
         currentData.addAsteroid();
         currentData.resetGame();

@@ -11,14 +11,14 @@ import static org.mockito.Mockito.*;
 
 public class AsteroidFactoryTest {
     @Test
-    public void MakeAsteroid_WhenCalled_MakesAsteroid(){
+    public void MakeAsteroid_WhenCalled_MakesAsteroid() {
         AsteroidFactory factory = new AsteroidFactory();
         Asteroid asteroid = factory.makeAsteroid();
         assertNotNull(asteroid);
     }
 
     @Test
-    public void MakeAsteroid_WhenCalled_SetsYOutsideScreen(){
+    public void MakeAsteroid_WhenCalled_SetsYOutsideScreen() {
         AsteroidFactory factory = new AsteroidFactory();
         Asteroid asteroid = factory.makeAsteroid();
         Vector2 actualPosition = asteroid.getPosition();
@@ -26,7 +26,7 @@ public class AsteroidFactoryTest {
     }
 
     @Test
-    public void MakeAsteroid_WhenCalled_SetsRandomValues(){
+    public void MakeAsteroid_WhenCalled_SetsRandomValues() {
         Random random = mock(Random.class);
         AsteroidFactory factory = new AsteroidFactory(random);
         factory.setxMaxBound(10);

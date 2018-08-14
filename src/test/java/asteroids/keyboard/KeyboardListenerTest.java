@@ -9,7 +9,7 @@ import static org.junit.Assert.assertFalse;
 
 public class KeyboardListenerTest {
     @Test
-    public void KeyPressed_WithProperKey_MovesPlayer(){
+    public void KeyPressed_WithProperKey_MovesPlayer() {
         CurrentData currentData = new CurrentData(null);
         Vector2 playerPosition = currentData.getPlayer().getPosition();
         int oldY = playerPosition.getY();
@@ -21,7 +21,7 @@ public class KeyboardListenerTest {
     }
 
     @Test
-    public void KeyPressed_WithInvalidKey_DoesNothing(){
+    public void KeyPressed_WithInvalidKey_DoesNothing() {
         CurrentData currentData = new CurrentData(null);
         Vector2 playerPosition = currentData.getPlayer().getPosition();
         int oldY = playerPosition.getY();
@@ -31,7 +31,7 @@ public class KeyboardListenerTest {
     }
 
     @Test
-    public void KeyPressed_RKeyPressed_ResetsGame(){
+    public void KeyPressed_RKeyPressed_ResetsGame() {
         CurrentData currentData = new CurrentData(null);
         currentData.setGameOver(true);
         KeyboardListener listener = new KeyboardListener(currentData);

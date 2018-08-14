@@ -9,10 +9,11 @@ public class AsteroidFactory {
     private final Random random;
     private int xMaxBound, speedMaxBound, sizeMaxBound, speedMinBound, sizeMinBound;
 
-    public AsteroidFactory(){
+    public AsteroidFactory() {
         this(new Random());
     }
 
+    // TODO: Consider injecting a Settings object versus using static constants for improved testability
     public AsteroidFactory(Random random) {
         xMaxBound = Settings.WIDTH;
         speedMinBound = Settings.MIN_SPEED;

@@ -12,7 +12,7 @@ public class Asteroid {
     private Vector2 position;
     private int speed, size;
 
-    public Asteroid(){
+    public Asteroid() {
         this(new Vector2(0, -1), Settings.MIN_SPEED, Settings.MIN_SIZE);
     }
 

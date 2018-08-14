@@ -14,7 +14,7 @@ public class Canvas extends JComponent {
         addKeyListener(makeKeyboardListener(currentData));
     }
 
-    public KeyboardListener makeKeyboardListener(CurrentData currentData){
+    public KeyboardListener makeKeyboardListener(CurrentData currentData) {
         return new KeyboardListener(currentData);
     }
 
@@ -23,10 +23,9 @@ public class Canvas extends JComponent {
         super.paintComponent(g);
         requestFocus();
         Drawer drawer = new Drawer((Graphics2D) g);
-        if(!currentData.isGameOver()) {
+        if (!currentData.isGameOver()) {
             currentData.showEntities(drawer);
-        }
-        else{
+        } else {
             drawer.drawGameOverScreen(g);
         }
     }

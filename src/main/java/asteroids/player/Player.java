@@ -14,7 +14,7 @@ public class Player {
     private int speed, size;
 
     public Player() {
-        this(new Vector2(Settings.WIDTH/2, Settings.HEIGHT/2), Settings.PLAYER_SPEED, Settings.PLAYER_SIZE);
+        this(new Vector2(Settings.WIDTH / 2, Settings.HEIGHT / 2), Settings.PLAYER_SPEED, Settings.PLAYER_SIZE);
     }
 
     public Player(Vector2 position, int speed, int size) {
@@ -24,7 +24,7 @@ public class Player {
     }
 
     public void move(Direction direction) {
-        switch (direction){
+        switch (direction) {
             case UP:
                 position.translate(0, -speed);
                 break;

@@ -13,7 +13,7 @@ import static org.mockito.Mockito.*;
 
 public class PlayerTest {
     @Test
-    public void Move_WhenCalled_MovesPlayer(){
+    public void Move_WhenCalled_MovesPlayer() {
         Player player = new Player(new Vector2(0, 0), 5, 3);
         player.move(Direction.DOWN);
         Vector2 position = player.getPosition();
@@ -21,7 +21,7 @@ public class PlayerTest {
     }
 
     @Test
-    public void Move_PositionOffScreen_DoesNotMove(){
+    public void Move_PositionOffScreen_DoesNotMove() {
         Player player = new Player(new Vector2(0, 0), 5, 3);
         player.move(Direction.LEFT);
         Vector2 position = player.getPosition();
@@ -29,7 +29,7 @@ public class PlayerTest {
     }
 
     @Test
-    public void Show_WhenCalled_CallsDrawer(){
+    public void Show_WhenCalled_CallsDrawer() {
         Vector2 position = new Vector2(0, 0);
         Player player = new Player(position, 5, 3);
         IDrawer drawer = mock(IDrawer.class);
@@ -38,7 +38,7 @@ public class PlayerTest {
     }
 
     @Test
-    public void Intersects_InsideAsteroid_ReturnsTrue(){
+    public void Intersects_InsideAsteroid_ReturnsTrue() {
         Asteroid asteroid = new Asteroid(new Vector2(10, 10), 10, 10);
         Player player = new Player(new Vector2(10, 10), 10, 10);
         boolean actual = player.intersects(asteroid);
@@ -46,7 +46,7 @@ public class PlayerTest {
     }
 
     @Test
-    public void Intersects_OutsideAsteroid_ReturnsFalse(){
+    public void Intersects_OutsideAsteroid_ReturnsFalse() {
         Asteroid asteroid = new Asteroid(new Vector2(10, 10), 10, 10);
         Player player = new Player(new Vector2(100, 10), 10, 10);
         boolean actual = player.intersects(asteroid);

@@ -17,7 +17,7 @@ import static org.mockito.Mockito.verify;
 
 public class AsteroidTest {
     @Test
-    public void Update_WhenCalled_UpdatesPositionBySpeed(){
+    public void Update_WhenCalled_UpdatesPositionBySpeed() {
         int x = 10, y = 10, speed = 5;
         Asteroid asteroid = new Asteroid(new Vector2(x, y), speed, 0);
         asteroid.update();
@@ -27,7 +27,7 @@ public class AsteroidTest {
     }
 
     @Test
-    public void Show_WhenCalled_CallsDrawer(){
+    public void Show_WhenCalled_CallsDrawer() {
         Vector2 position = new Vector2(0, 0);
         Asteroid asteroid = new Asteroid(position, 5, 3);
         IDrawer drawer = mock(IDrawer.class);
@@ -36,23 +36,23 @@ public class AsteroidTest {
     }
 
     @Test
-    public void IsOffScreen_IsAboveScreen_ReturnsFalse(){
+    public void IsOffScreen_IsAboveScreen_ReturnsFalse() {
         Asteroid asteroid = new Asteroid(new Vector2(0, -1), 10, 10);
         boolean actual = asteroid.isOffScreen();
         assertFalse(actual);
     }
 
     @Test
-    public void IsOffScreen_IsBelowScreen_ReturnsTrue(){
+    public void IsOffScreen_IsBelowScreen_ReturnsTrue() {
         Asteroid asteroid = new Asteroid(new Vector2(0, Settings.HEIGHT + 1), 10, 10);
         boolean actual = asteroid.isOffScreen();
         assertTrue(actual);
     }
 
     @Test
-    public void GetCollisionRect_WhenCalled_GeneratesRectangle(){
+    public void GetCollisionRect_WhenCalled_GeneratesRectangle() {
         Asteroid asteroid = new Asteroid(new Vector2(10, 10), 10, 10);
-        Ellipse2D expected = new Ellipse2D.Float(10, 10, 10 ,10);
+        Ellipse2D expected = new Ellipse2D.Float(10, 10, 10, 10);
         Ellipse2D actual = asteroid.getCollisionBox();
         assertEquals(expected, actual);
     }

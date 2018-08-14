@@ -14,7 +14,7 @@ public class CurrentData {
     private final Player player;
     private boolean gameOver;
 
-    public CurrentData(){
+    public CurrentData() {
         this(new AsteroidFactory());
     }
 
@@ -35,13 +35,15 @@ public class CurrentData {
     }
 
     public void updateAsteroids() {
-        for(Asteroid asteroid : asteroids)
+        for (Asteroid asteroid : asteroids) {
             asteroid.update();
+        }
     }
 
     public void showEntities(IDrawer drawer) {
-        for(Asteroid asteroid : asteroids)
+        for (Asteroid asteroid : asteroids) {
             asteroid.show(drawer);
+        }
         player.show(drawer);
     }
 
@@ -54,8 +56,8 @@ public class CurrentData {
     }
 
     public void cleanAsteroids() {
-        for(int i = asteroids.size() - 1; i >= 0; i--)
-            if(asteroids.get(i).isOffScreen())
+        for (int i = asteroids.size() - 1; i >= 0; i--)
+            if (asteroids.get(i).isOffScreen())
                 asteroids.remove(i);
     }
 
@@ -68,8 +70,8 @@ public class CurrentData {
     }
 
     public void checkCollisions() {
-        for(Asteroid asteroid : asteroids){
-            if(player.intersects(asteroid)){
+        for (Asteroid asteroid : asteroids) {
+            if (player.intersects(asteroid)) {
                 gameOver = true;
                 return;
             }

@@ -9,7 +9,7 @@ import static org.mockito.Mockito.*;
 
 public class CanvasTest {
     @Test
-    public void PaintComponent_NoGameOver_ShowsAllEntities(){
+    public void PaintComponent_NoGameOver_ShowsAllEntities() {
         CurrentData currentData = mock(CurrentData.class);
         when(currentData.isGameOver()).thenReturn(false);
         Canvas canvas = new Canvas(currentData);
@@ -18,7 +18,7 @@ public class CanvasTest {
     }
 
     @Test
-    public void PaintComponent_GameOver_ShowsAllEntities(){
+    public void PaintComponent_GameOver_ShowsAllEntities() {
         CurrentData currentData = mock(CurrentData.class);
         when(currentData.isGameOver()).thenReturn(true);
         Canvas canvas = new Canvas(currentData);

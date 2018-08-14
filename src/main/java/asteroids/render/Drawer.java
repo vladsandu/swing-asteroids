@@ -6,7 +6,7 @@ import asteroids.settings.Settings;
 import java.awt.*;
 import java.util.Set;
 
-public class Drawer implements IDrawer{
+public class Drawer implements IDrawer {
     private final Graphics2D graphics;
 
     public Drawer(Graphics2D graphics) {
@@ -31,6 +31,6 @@ public class Drawer implements IDrawer{
         FontMetrics fontMetrics = g.getFontMetrics(defaultFont);
         int stringWidth = fontMetrics.stringWidth(message);
         graphics.setFont(defaultFont);
-        graphics.drawString("Game over!", Settings.WIDTH/2 - stringWidth/2, Settings.HEIGHT/2 - fontSize/2);
+        graphics.drawString("Game over!", Settings.WIDTH / 2 - stringWidth / 2, Settings.HEIGHT / 2 - fontSize / 2);
     }
 }

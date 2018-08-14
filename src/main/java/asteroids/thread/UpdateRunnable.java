@@ -5,7 +5,7 @@ import asteroids.state.CurrentData;
 
 import java.util.Random;
 
-public class UpdateRunnable implements Runnable{
+public class UpdateRunnable implements Runnable {
     private final CurrentData currentData;
     private int spawnChance;
     private Random random;
@@ -26,7 +26,7 @@ public class UpdateRunnable implements Runnable{
 
     private void trySpawnAsteroid() {
         int value = random.nextInt(100);
-        if(value <= spawnChance)
+        if (value <= spawnChance)
             currentData.addAsteroid();
     }
 

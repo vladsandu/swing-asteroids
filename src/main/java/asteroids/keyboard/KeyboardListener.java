@@ -6,7 +6,7 @@ import asteroids.state.Direction;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class KeyboardListener implements KeyListener{
+public class KeyboardListener implements KeyListener {
     private final CurrentData currentData;
 
     public KeyboardListener(CurrentData currentData) {
@@ -14,6 +14,7 @@ public class KeyboardListener implements KeyListener{
     }
 
     public void keyTyped(KeyEvent e) {
+        // Not implemented
     }
 
     public void keyPressed(KeyEvent e) {
@@ -21,12 +22,12 @@ public class KeyboardListener implements KeyListener{
     }
 
     public void keyReleased(KeyEvent e) {
-
+        // Not implemented
     }
 
     public void processKey(char character) {
         character = Character.toUpperCase(character);
-        switch (character){
+        switch (character) {
             case 'W':
                 currentData.movePlayer(Direction.UP);
                 break;
